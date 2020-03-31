@@ -1,0 +1,9 @@
+.vscode
+*.DS_Store
+*__pycache__
+*.env
+*.csv
+dashboard_web/static/.webassets-cache
+dashboard_web/static/gen/
+dashboard_web/static/images
+dashboard_web/static/css/vendor/svgs
