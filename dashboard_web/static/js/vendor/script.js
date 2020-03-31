@@ -18,9 +18,9 @@ function getPower(year,month,day){
   xhttp.send(null);
   return xhttp.responseText
 }
-function chartConfig(year,month,day){
-  var server_data = JSON.parse(getData(year,month,day));
-  var gen = JSON.parse(getPower(year,month,day));
+function chartConfig(server_data,gen){
+  // var server_data = JSON.parse(getData(year,month,day));
+  // var gen = JSON.parse(getPower(year,month,day));
   var data = []
   var list = []
   // intialize array
@@ -343,9 +343,11 @@ function renderChart(year,month,day){
     // Javascript code to execute after DOM content
     // full ZingChart schema can be found here:
     // https://www.zingchart.com/docs/api/json-configuration/
+    server_data = JSON.parse(getData(year,month,day));
+    gen = JSON.parse(getPower(year,month,day));
     zingchart.render({ 
         id: 'myChart', 
-        data: chartConfig(year,month,day),
+        data: chartConfig(server_data,gen),
         width:'100%' ,
         });
 };
@@ -374,7 +376,6 @@ window.onload = function(){
     renderChart.apply(null,getDateParameters(today));
     // Set Event Trigger after the window load and after setting today Date
     $('.input-group.date').datepicker()
-
     .on('changeDate', function() {
         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
         renderChart.apply(null,dateSelected)
