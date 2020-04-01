@@ -26,7 +26,6 @@ def index(year,month,day):
 
 @users_api_blueprint.route('/generated/<int:year>/<int:month>/<int:day>',methods=['GET'])
 def power_generated(year,month,day):
-    gen1 =  Generator.get_by_id(1)
     generators = Generator.select().order_by(Generator.created_at.asc())
     date_select = dt.datetime(year,month,day,0,0,0).strftime('%Y-%m-%d')
     #create a seven day list from the selection date input

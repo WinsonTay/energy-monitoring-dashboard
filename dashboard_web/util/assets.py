@@ -9,6 +9,7 @@ bundles = {
         'js/vendor/zingchart.min.js',
         'js/vendor/script.js',
         'js/vendor/bootstrap-datepicker.js',
+        'js/vendor/grid.js',
         filters='jsmin',
         output='gen/home.%(version)s.js'),
 

@@ -1,5 +1,6 @@
 getdata = document.getElementById("getData");
-var gYear, gMonth, gDay
+
+
 function getData(year,month,day){
     var xhttp = new XMLHttpRequest();
     // xhttp.onreadystatechange = function(){
@@ -24,6 +25,7 @@ function chartConfig(server_data,gen){
   var data = []
   var list = []
   // intialize array
+  // get power generate value
 for(j=0;j<gen.length;j++){
   for (i=0; i<gen[0].power_generated.length; i++){
       list.push(gen[j].power_generated[i].power);
@@ -152,7 +154,7 @@ for(j=0;j<gen.length;j++){
         },
         series: [
           {
-            values: data[0],
+            values:data[0],
           },
           {
             values:data[1],
@@ -339,6 +341,7 @@ for(j=0;j<gen.length;j++){
   return chartConfig;
 }
 
+
 function renderChart(year,month,day){
     // Javascript code to execute after DOM content
     // full ZingChart schema can be found here:
@@ -372,8 +375,8 @@ window.onload = function(){
     today = new Date();
 
     $('.input-group.date').datepicker('setDate', today.toDateString());
-    getDateParameters(today);
     renderChart.apply(null,getDateParameters(today));
+
     // Set Event Trigger after the window load and after setting today Date
     $('.input-group.date').datepicker()
     .on('changeDate', function() {

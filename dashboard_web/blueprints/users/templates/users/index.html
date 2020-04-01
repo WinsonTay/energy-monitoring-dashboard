@@ -14,19 +14,26 @@
   <li class="error"><font color="red">{{error}}</font></li>
 {% endfor %}
 <div class = "container">
-    <h4 class ="p-2">Energy Monitoring</h4>
-      <div class = "row">
-          <div class = "col-lg-12"> 
+      <h4 class ="p-2">Energy Monitoring</h4>
+    <div class = "row">
+          <div class = "col-lg-12 chart-container"> 
             <div class="input-group date mb-3 w-25">
               <input type="text" class="form-control" placeholder="Select Date..">
               <div class="input-group-addon" >
-                <span><img class= "p-2" style="background-color: white;"height="42" width="42" src="{{ url_for('static', filename='/images/icons8-calendar.svg') }}"/> </span>
+                <span><img class= "p-2" style="background-color: white;"height="42" width="42" src="{{ url_for('static', filename='images/icons8-calendar.svg') }}"/> </span>
               </div>
             </div>
             <div id="myChart" class = "bar-chart"></div>
-            </div>
-          </div>  <!--Put id table code here-->
-      </div>
-  </div>
+          </div>
+    </div>
+
+    <div class ="row">
+          <div class = "col-lg-12 grid-container">
+              <h5 class="text-center">kWH Records</h5><span id="dateSelected"></span>
+              <div id="myGrid" class = "bar-chart"></div>
+          </div>
+    </div>  <!--Put id table code here-->
+</div>
+
  
 {%endblock%}
