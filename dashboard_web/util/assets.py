@@ -7,10 +7,12 @@ bundles = {
         'js/vendor/popper.js',
         'js/vendor/bootstrap-4.1.3.js',
         'js/vendor/zingchart.min.js',
-        # 'js/vendor/font-all.js',
+        # 'js/vendor/jspdf.debug.js',
+        'js/vendor/jspdf.min.js',
         'js/vendor/script.js',
         'js/vendor/bootstrap-datepicker.js',
         'js/vendor/grid.js',
+        'js/vendor/print.js',
         filters='jsmin',
         output='gen/home.%(version)s.js'),
 

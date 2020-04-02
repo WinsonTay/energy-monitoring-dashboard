@@ -58,6 +58,7 @@ function renderGrid(year,month,day){
         data: gridConfig(gridSeries),
         width:'100%' ,
         height:'200%',
+        output:'svg',
         });
 }
 
@@ -81,6 +82,7 @@ window.onload = function(){
         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
         $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
         renderGrid.apply(null,dateSelected)
+    
         renderChart.apply(null,dateSelected)
     });
     
@@ -99,6 +101,7 @@ function updateGrid(idx){
                 width:'100%' ,
                 height:'200%',
                 });
+
 }
 
 selection = document.querySelectorAll('.gridSelect');
