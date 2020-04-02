@@ -1,6 +1,5 @@
 getdata = document.getElementById("getData");
 
-
 function getData(year,month,day){
     var xhttp = new XMLHttpRequest();
     // xhttp.onreadystatechange = function(){
@@ -52,7 +51,7 @@ for(j=0;j<gen.length;j++){
         x: '2%',
         y: '3%',
         title: {
-          text: 'DEPARTMENT PERFORMANCE',
+          text: 'GENERATOR PERFORMANCE FOR PAST 7 DAYS',
           marginTop: '7px',
           marginLeft: '9px',
           backgroundColor: 'none',
@@ -73,14 +72,6 @@ for(j=0;j<gen.length;j++){
             fontSize: '11px',
             shadow: false
           },
-          // 'value-box': {
-          //   text: "%vkWH",
-          //   placement: "top-out",
-          //   'font-color': "black",
-          //   'font-size': 11,
-          //   angle: -90,
-          //   'offset-y': -20
-          // },
           animation: {
             delay: 500,
             effect: 'ANIMATION_SLIDE_BOTTOM'
@@ -362,29 +353,41 @@ function getDateParameters(dateValue){
   return dateParameters;
 }
 
+function printDiv(divName) {
+  divName = "."+ divName;
+  console.log(divName);
+  var printContents = document.querySelectorAll(divName).innerHTML;
+  var originalContents = document.body.innerHTML;
 
-// put today date here
-window.onload = function(){
-  //init date picker format
-  $('.input-group.date').datepicker({
-    format: "dd/mm/yyyy",
-    todayBtn: "linked",
-    todayHighlight: true,
-    });
-    // Get Today Date
-    today = new Date();
+  document.body.innerHTML = printContents;
 
-    $('.input-group.date').datepicker('setDate', today.toDateString());
-    renderChart.apply(null,getDateParameters(today));
+  window.print();
 
-    // Set Event Trigger after the window load and after setting today Date
-    $('.input-group.date').datepicker()
-    .on('changeDate', function() {
-        dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
-        renderChart.apply(null,dateSelected)
-    });
-
+  document.body.innerHTML = originalContents;
 }
+// window.onload = function(){
+//   //init date picker format
+//   $('.input-group.date').datepicker({
+//     format: "dd/mm/yyyy",
+//     todayBtn: "linked",
+//     todayHighlight: true,
+//     autoclose: true,
+//     });
+//     // Get Today Date
+//     today = new Date();
+
+//     $('.input-group.date').datepicker('setDate', today.toDateString());
+//     renderChart.apply(null,getDateParameters(today));
+
+//     // Set Event Trigger after the window load and after setting today Date
+//     $('.input-group.date').datepicker()
+//     .on('changeDate', function() {
+//         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
+//         $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
+//         renderChart.apply(null,dateSelected)
+//     });
+
+// }
 
 
 

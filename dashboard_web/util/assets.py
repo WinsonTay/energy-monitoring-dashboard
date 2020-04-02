@@ -7,6 +7,7 @@ bundles = {
         'js/vendor/popper.js',
         'js/vendor/bootstrap-4.1.3.js',
         'js/vendor/zingchart.min.js',
+        # 'js/vendor/font-all.js',
         'js/vendor/script.js',
         'js/vendor/bootstrap-datepicker.js',
         'js/vendor/grid.js',
@@ -18,6 +19,8 @@ bundles = {
         'css/vendor/error404.css',
         'css/custom.css',
         'css/vendor/bootstrap-datepicker3.css',
+        'css/vendor/font-awesome.min.css',
+        'css/vendor/all.css',
         filters='cssmin',
         output='gen/home.%(version)s.css'),
 

@@ -25,24 +25,37 @@
 
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand p-0" href="https://scgcontrol.com/"><img class= "rounded" width ='350' src="{{url_for('static',filename='images/SCG-Logo.jpg') }}"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <div class="input-group date w-100 align-items-center">
+              <input type="submit" class="form-control rounded" value="Date Select">
+              <div class="input-group-addon" >    
+                <span class=ml-1><i style="color:lightgray;font-size:25px;" aria-hidden="true" class="fa fa-calendar fa-lg"></i></span>     
+              </div>
+            </div>
+        </div>
+        <div class="navbar-nav">
+          <button class=" ml-3 btn btn-primary" onclick="printDiv('printable')">Print</button>
+        </div>
+      </div>
+    </nav>
+   
     {% block content %}
     {% endblock %}
 
     
+
+    <!-- Script loaded here -->
     {% assets "home_js" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script> -->
     <script>zingchart.MODULESDIR="{{ url_for('static',filename='js/vendor/modules/') }}";</script>
     {% endassets %}
-    <script>
-    //   $('.input-group.date').datepicker({
-    //  format: "dd/mm/yyyy",
-    //  todayBtn: "linked",
-    //  todayHighlight: true,
-    //  });
-    //  const d = new Date();
-    // //  console.log(d.toDateString());
-    //  $('.input-group.date').datepicker('setDate', d.toDateString());
-    </script>
+  
   </body>
 </html>

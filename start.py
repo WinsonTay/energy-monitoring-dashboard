@@ -3,4 +3,4 @@ import dashboard_api
 import dashboard_web
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded=True)
