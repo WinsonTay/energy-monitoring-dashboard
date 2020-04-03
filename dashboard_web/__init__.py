@@ -32,7 +32,6 @@ def not_authorized(e):
 
 @app.route("/")
 def home():
-    addData();
     return render_template('users/index.html')
    
 
