@@ -15,12 +15,22 @@ def index(year,month,day):
 
     date = dt.datetime(year,month,day).strftime('%Y-%m-%d')
 
-    data={   "date":date,
-             "gen_record" :[{"name":gen1.name , "power":[value.kWH for value in gen1.daily_record(year,month,day)]},
-                    {"name":gen2.name , "power":[value.kWH for value in gen2.daily_record(year,month,day)]},
-                    {"name":gen3.name , "power":[value.kWH for value in gen3.daily_record(year,month,day)]},
-                ]   
-    }         
+    if len(gen1.daily_record(year,month,day)) > 0:
+        data={   "date":date,
+                "gen_record" :[{"name":gen1.name , "power":[value.kWH for value in gen1.daily_record(year,month,day)]},
+                        {"name":gen2.name , "power":[value.kWH for value in gen2.daily_record(year,month,day)]},
+                        {"name":gen3.name , "power":[value.kWH for value in gen3.daily_record(year,month,day)]},
+                    ]  
+        }
+    else:
+          data={"date":date,
+                "gen_record" :[{"name":gen1.name , "power":[randint(50,100) for i in range(0,25)]},
+                        {"name":gen2.name , "power":[randint(50,100) for i in range(0,25)]},
+                        {"name":gen3.name , "power":[randint(50,100) for i in range(0,25)]},
+                    ]  
+        }
+        
+             
     #write code here to produce 
     return jsonify(data)
 

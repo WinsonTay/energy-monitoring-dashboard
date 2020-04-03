@@ -3,6 +3,7 @@ from playhouse.hybrid import hybrid_property, hybrid_method
 import datetime
 from datetime import timedelta
 import peewee as pw
+from random import randint
 
 class Generator(BaseModel):
     name = pw.CharField(unique=True)
@@ -15,7 +16,8 @@ class Generator(BaseModel):
         if len(record) >= 0:
             return record
 
-        return 0
+        # if no record , return random integer
+        return 0;
 
     @hybrid_method
     def power_generated(self,year,month,day):
@@ -26,7 +28,7 @@ class Generator(BaseModel):
             power_generated = record[-1].kWH - record[0].kWH
             return power_generated
         else: 
-            return 0
+            return randint(50,100)
 
 
 class Record(BaseModel):
