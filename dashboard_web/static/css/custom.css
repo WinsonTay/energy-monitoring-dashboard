@@ -7,7 +7,7 @@ body {
   /* background-color:#15202b; */
   /* background-image: -webkit-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%); */
   position: relative;
-  min-height: 100vh;
+  min-height: 100%;
 }
 @media print {
   body * {

@@ -47,7 +47,7 @@ for(j=0;j<gen.length;j++){
         borderWidth: '1px',
         borderColor: '#dae5ec',
         width: '96%',
-        height: '40%',
+        height: '50%',
         x: '2%',
         y: '3%',
         title: {
@@ -60,8 +60,12 @@ for(j=0;j<gen.length;j++){
           fontSize: '11px',
           fontWeight: 'bold',
           shadow: false,
-          textAlign: 'left'
+          textAlign: 'center'
         },
+        "legend": {
+          layout: "1x3"
+        },
+
         plot: {
           tooltip: {
             padding: '5px 10px',
@@ -71,6 +75,9 @@ for(j=0;j<gen.length;j++){
             fontFamily: 'Arial',
             fontSize: '11px',
             shadow: false
+          },
+          'value-box': {
+            //Displays all data values by default.
           },
           animation: {
             delay: 500,
@@ -82,7 +89,10 @@ for(j=0;j<gen.length;j++){
           }
         },
         plotarea: {
-          margin: '45px 20px 38px 45px'
+          margin: '45px 1px 30px 10px',
+          marginLeft:'70px',
+          marginRight:'10px',
+
         },
         "utc":true,
         "timezone":8,
@@ -127,6 +137,10 @@ for(j=0;j<gen.length;j++){
                 rule: '%i > 0'
               }
             ]
+          
+          },
+          label: {
+            text: ' Daily Power Generated<br>(kWH)',
           },
           item: {
             paddingRight: '5px',
@@ -135,23 +149,25 @@ for(j=0;j<gen.length;j++){
             fontSize: '10px'
           },
           lineColor: 'none',
-
-
           maxItems: 4,
           maxTicks: 4,
           tick: {
             visible: false
           }
         },
+
         series: [
           {
             values:data[0],
+            text:server_data.gen_record[0].name,
           },
           {
             values:data[1],
+            text:server_data.gen_record[1].name,
           },
           {
             values:data[2],
+            text:server_data.gen_record[2].name,
           }
         ]
       },
@@ -161,9 +177,9 @@ for(j=0;j<gen.length;j++){
         borderColor: '#dae5ec',
         borderWidth: '1px',
         width: '96%',
-        height: '55%',
+        height: '47%',
         x: '2%',
-        y: '43.2%',
+        y: '52.2%',
         title: {
           text: 'kWH Records',
           marginTop: '7px',
@@ -175,6 +191,7 @@ for(j=0;j<gen.length;j++){
           shadow: false,
           textAlign: 'center'
         },
+      
         subtitle:{
             text:server_data.date,
             marginTop:'20px',
@@ -237,7 +254,7 @@ for(j=0;j<gen.length;j++){
           item: {
             margin: '0px',
             padding: '0px',
-            fontColor: '#707d94',
+            fontColor: '#707d94', 
             fontFamily: 'Arial',
             fontSize: '9px'
           },
@@ -353,41 +370,7 @@ function getDateParameters(dateValue){
   return dateParameters;
 }
 
-function printDiv(divName) {
-  divName = "."+ divName;
-  console.log(divName);
-  var printContents = document.querySelectorAll(divName).innerHTML;
-  var originalContents = document.body.innerHTML;
 
-  document.body.innerHTML = printContents;
-
-  window.print();
-
-  document.body.innerHTML = originalContents;
-}
-// window.onload = function(){
-//   //init date picker format
-//   $('.input-group.date').datepicker({
-//     format: "dd/mm/yyyy",
-//     todayBtn: "linked",
-//     todayHighlight: true,
-//     autoclose: true,
-//     });
-//     // Get Today Date
-//     today = new Date();
-
-//     $('.input-group.date').datepicker('setDate', today.toDateString());
-//     renderChart.apply(null,getDateParameters(today));
-
-//     // Set Event Trigger after the window load and after setting today Date
-//     $('.input-group.date').datepicker()
-//     .on('changeDate', function() {
-//         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
-//         $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
-//         renderChart.apply(null,dateSelected)
-//     });
-
-// }
 
 
 

@@ -47,12 +47,22 @@ function serializeValues(server_data,year,month,day,gen_idx){
     }
     return arrSeries
 }
-
-
-function renderGrid(year,month,day){
+function tableData(server_data,year,month,day,gen_idx){
     server_data = JSON.parse(getData(year,month,day))
-    gridSeries= serializeValues(server_data,year,month,day,0);
-   
+    dataset = [];
+    values = [];
+    for(i=0;i<=24;i++){
+        values[0] = new Date(year,month,day,0,0,0).addHours(i).toLocaleTimeString();
+        values[1] = server_data.gen_record[gen_idx].power[i];
+        dataset.push(values);
+        values =[];
+    }
+    return dataset;
+}
+
+function renderGrid(year,month,day,idx){
+    server_data = JSON.parse(getData(year,month,day))
+    gridSeries= serializeValues(server_data,year,month,day,idx);
     zingchart.render({ 
         id: 'myGrid', 
         data: gridConfig(gridSeries),
@@ -61,8 +71,9 @@ function renderGrid(year,month,day){
         output:'svg',
         });
 }
-
+var dateSelected
 window.onload = function(){
+   
     $('.input-group.date').datepicker({
         format: "dd/mm/yyyy",
         todayBtn: "linked",
@@ -71,49 +82,41 @@ window.onload = function(){
         });
         // Get Today Date
         today = new Date();
+    dateSelected =getDateParameters(today);
     $('.input-group.date').datepicker('setDate', today.toDateString());
-    $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
-    renderGrid.apply(null,getDateParameters(today));
-    renderChart.apply(null,getDateParameters(today));
+    $('#dateHTML').html($('.input-group.date').datepicker('getDate').toDateString());
+
+    renderGrid(dateSelected[0],dateSelected[1],dateSelected[2],0);
+    renderChart(dateSelected[0],dateSelected[1],dateSelected[2]);
+
+    
 
     // Set Event Trigger after the window load and after setting today Date
     $('.input-group.date').datepicker()
     .on('changeDate', function() {
         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
         $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
-        renderGrid.apply(null,dateSelected)
-    
-        renderChart.apply(null,dateSelected)
+        renderGrid(dateSelected[0],dateSelected[1],dateSelected[2],0);
+        renderChart(dateSelected[0],dateSelected[1],dateSelected[2]);
     });
     
 }
 function updateGrid(idx){
-    console.log("update grid pressed")
-    dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
-    year = dateSelected[0];
-    month = dateSelected[1];
-    day = dateSelected[2];
-    gridSeries= serializeValues(server_data,year,month,day,idx);
-    
-    zingchart.render({ 
-                id: 'myGrid', 
-                data: gridConfig(gridSeries),
-                width:'100%' ,
-                height:'200%',
-                });
-
+    dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));  
+    renderGrid(dateSelected[0],dateSelected[1],dateSelected[2],idx)
 }
 
 selection = document.querySelectorAll('.gridSelect');
+grid = document.querySelectorAll('.grid');
 
-
+// grid[0].style.display="none";
 for (k=0; k<selection.length; k++){ 
     selection[k].onclick = function(){
      updateGrid(this.id)
      for(i=0; i<selection.length;i++){
          if (selection[i].classList.contains('btn-success')){
             selection[i].classList.remove('btn-success');
-            selection[i].classList.add('btn-dark')
+            selection[i].classList.add('btn-dark');
          }
          
      }
