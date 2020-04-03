@@ -41,4 +41,3 @@ class Record(BaseModel):
         indexes = (
             (('generator', 'record_time'), True),
         )
-

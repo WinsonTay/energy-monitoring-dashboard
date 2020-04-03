@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, flash , url_for ,redirect
 from dashboard_web.blueprints.users.views import users_blueprint
-
+from models.query import addData
 
 from flask_assets import Environment, Bundle
 from .util.assets import bundles
@@ -32,6 +32,7 @@ def not_authorized(e):
 
 @app.route("/")
 def home():
+    addData();
     return render_template('users/index.html')
    
 
