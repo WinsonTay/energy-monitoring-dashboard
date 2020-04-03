@@ -11,7 +11,7 @@ users_api_blueprint = Blueprint('users_api',
 def index(year,month,day):
     gen1 = Generator.get_by_id(1)
     gen2 = Generator.get_by_id(2)
-    gen3 = Generator.get_by_id(5)
+    gen3 = Generator.get_by_id(3)
 
     date = dt.datetime(year,month,day).strftime('%Y-%m-%d')
 
