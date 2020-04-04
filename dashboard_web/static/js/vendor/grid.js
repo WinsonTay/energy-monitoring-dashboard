@@ -87,7 +87,7 @@ window.onload = function(){
     $('#dateHTML').html($('.input-group.date').datepicker('getDate').toDateString());
 
     renderGrid(dateSelected[0],dateSelected[1],dateSelected[2],0);
-    // renderChart(dateSelected[0],dateSelected[1],dateSelected[2]);
+    renderChart(dateSelected[0],dateSelected[1],dateSelected[2]);
 
     
 
