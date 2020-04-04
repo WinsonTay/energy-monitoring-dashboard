@@ -8,13 +8,13 @@ function getData(year,month,day){
     //       return parsed_data
     //   }
     // };
-    xhttp.open("GET","https://winson-dashboard.herokuapp.com/api/v1/data/"+year+"/"+month+"/"+day,false)
+    xhttp.open("GET","http://127.0.0.1:5000/api/v1/data/"+year+"/"+month+"/"+day,false)
     xhttp.send(null);
     return xhttp.responseText
 }
 function getPower(year,month,day){
   var xhttp = new XMLHttpRequest();
-  xhttp.open("GET","https://winson-dashboard.herokuapp.com/api/v1/data/"+"generated"+"/"+year+"/"+month+"/"+day,false)
+  xhttp.open("GET","http://127.0.0.1:5000/api/v1/data/"+"generated"+"/"+year+"/"+month+"/"+day,false)
   xhttp.send(null);
   return xhttp.responseText
 }
