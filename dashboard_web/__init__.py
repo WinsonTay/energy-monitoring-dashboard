@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, flash , url_for ,redirect
 from dashboard_web.blueprints.users.views import users_blueprint
 from models.query import addData
-
+import logging
 from flask_assets import Environment, Bundle
 from .util.assets import bundles
 # from flask_login import login_user , LoginManager , current_user
@@ -13,6 +13,10 @@ assets.register(bundles)
 #Login manager init
 # login_manager = LoginManager()
 # login_manager.init_app(app)
+if __name__ != '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
 
 # login_manager.login_view = "users.show,id=3"
 # login_manager.login_message ="What The Hell"
@@ -32,6 +36,7 @@ def not_authorized(e):
 
 @app.route("/")
 def home():
+    app.logger.debug('this is a DEBUG message')
     return render_template('users/index.html')
     # return render_template('home.html')
 
