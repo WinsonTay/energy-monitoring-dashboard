@@ -32,8 +32,8 @@ def not_authorized(e):
 
 @app.route("/")
 def home():
-    # return render_template('users/index.html')
-    return render_template('home.html')
+    return render_template('users/index.html')
+    # return render_template('home.html')
 
 # @login_manager.user_loader
 # def load_user(user_id):
