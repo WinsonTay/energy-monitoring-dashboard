@@ -25,19 +25,19 @@ function chartConfig(server_data,gen){
   var list = []
   // intialize array
   // get power generate value
-for(j=0;j<gen.length;j++){
-  for (i=0; i<gen[0].power_generated.length; i++){
-      list.push(gen[j].power_generated[i].power);
+    for(j=0;j<gen.length;j++){
+      for (i=0; i<gen[0].power_generated.length; i++){
+          list.push(gen[j].power_generated[i].power);
+      }
+      data[j] = list;
+      list =[];
   }
-  data[j] = list;
-  list =[];
-}
 
   var ts = server_data.date + "T00:00:00.000";
   var ts_2 =gen[0].power_generated[0].date +"T00:00:00.000";
   unix_seconds = ((new Date(ts)).getTime());
   unix_seconds_2 = ((new Date(ts_2)).getTime());
-  
+    
   let chartConfig = {
     backgroundColor: '#ecf2f6',
     graphset: [
