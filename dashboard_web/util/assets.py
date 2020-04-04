@@ -1,17 +1,17 @@
-# 'js/vendor/zingchart.min.js',
-   # 'js/vendor/jspdf2.min.js',
-        # 'js/vendor/jspdf.plugin.autotable.js',
-        # 'js/vendor/script.js',
+
 from flask_assets import Bundle
 
 bundles = {
-
     'home_js': Bundle(
         'js/vendor/jquery-3.3.1.js',
         'js/vendor/popper.js',
         'js/vendor/bootstrap-4.1.3.js',
         'js/vendor/bootstrap-datepicker.js',
-        # 'js/vendor/grid.js',
+        'js/vendor/zingchart.min.js',
+        'js/vendor/jspdf2.min.js',
+        'js/vendor/jspdf.plugin.autotable.js',
+        'js/vendor/script.js',
+        'js/vendor/grid.js',
         'js/vendor/print.js',
         filters='jsmin',
         output='gen/home.%(version)s.js'),
