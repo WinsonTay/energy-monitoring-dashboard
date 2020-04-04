@@ -4,6 +4,5 @@
 *.env
 *.csv
 dashboard_web/static/.webassets-cache
-dashboard_web/static/gen/
 
 
