@@ -1,3 +1,3 @@
  release:python migrate.py
  flask translate compile
- web: gunicorn start:app
+ web: gunicorn start:app --timeout 90
