@@ -16,7 +16,13 @@
   
     {% block header %}
     {% endblock %}
-
+       <!-- Script loaded here -->
+       {% assets "home_js" %}
+       <!-- <script type="text/javascript" src="{{ ASSET_URL }}"></script> -->
+       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script> -->
+       <!-- <script>zingchart.MODULESDIR="{{ url_for('static',filename='js/vendor/modules/') }}";</script> -->
+       <!-- test -->
+       {% endassets %}
     <title>
       {% block title %}
       {% endblock %}Energy Monitor
@@ -49,13 +55,7 @@
 
     
 
-    <!-- Script loaded here -->
-    {% assets "home_js" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script> -->
-    <script>zingchart.MODULESDIR="{{ url_for('static',filename='js/vendor/modules/') }}";</script>
-    <!-- test -->
-    {% endassets %}
+ 
   
   </body>
 </html>
