@@ -5,5 +5,5 @@
 *.csv
 dashboard_web/static/.webassets-cache
 dashboard_web/static/gen/
-dashboard_web/static/css/vendor/svgs
+
 
