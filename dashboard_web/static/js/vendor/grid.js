@@ -95,7 +95,7 @@ window.onload = function(){
     $('.input-group.date').datepicker()
     .on('changeDate', function() {
         dateSelected = getDateParameters(($('.input-group.date').datepicker('getDate')));
-        $('#dateSelected').html($('.input-group.date').datepicker('getDate').toDateString());
+        $('#dateHTML').html($('.input-group.date').datepicker('getDate').toDateString());
         renderGrid(dateSelected[0],dateSelected[1],dateSelected[2],0);
         renderChart(dateSelected[0],dateSelected[1],dateSelected[2]);
     });

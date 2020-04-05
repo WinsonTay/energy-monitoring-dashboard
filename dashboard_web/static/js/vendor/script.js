@@ -47,7 +47,7 @@ function chartConfig(server_data,gen){
         borderWidth: '1px',
         borderColor: '#dae5ec',
         width: '96%',
-        height: '50%',
+        height: '42%',
         x: '2%',
         y: '3%',
         title: {
@@ -63,18 +63,19 @@ function chartConfig(server_data,gen){
           textAlign: 'center'
         },
         "legend": {
-          layout: "1x3"
+          layout: "2x2"
         },
 
         plot: {
           tooltip: {
             padding: '5px 10px',
             backgroundColor: '#707e94',
-            borderRadius: '6px',
+            borderRadius: '8px',
             fontColor: '#fff',
             fontFamily: 'Arial',
             fontSize: '11px',
             shadow: false
+            
           },
           'value-box': {
             //Displays all data values by default.
@@ -99,6 +100,7 @@ function chartConfig(server_data,gen){
         
         scaleX: {
             minValue: unix_seconds_2,
+            
             step: '1day', 
             transform:{ 
               type: 'date',
@@ -106,6 +108,32 @@ function chartConfig(server_data,gen){
               all: '%D, %d %M %Y',
               itemsOverlap: true,
             },
+            mediaRules: [
+              {
+                maxWidth: 700,
+                "zooming": true,
+                "zoom-to": [0, 4],
+                transform:{ 
+                  type: 'date',
+                  // all: '%D, %d %M %Y<br>%h:%i %A', Day,day Month, Year, Time format
+                  all: '%m/%d',
+                  itemsOverlap: true,
+                },
+              
+              },
+              {
+                maxWidth: 500,
+                "zooming": true,
+                "zoom-to": [0, 1],
+                transform:{ 
+                  type: 'date',
+                  // all: '%D, %d %M %Y<br>%h:%i %A', Day,day Month, Year, Time format
+                  all: '%m/%d',
+                  itemsOverlap: true,
+                },
+              
+              },
+            ],
           item: {
             paddingTop: '2px',
             fontColor: '#8391a5',
@@ -119,6 +147,15 @@ function chartConfig(server_data,gen){
           tick: {
             lineColor: '#d2dae2',
             visible: false
+          }
+        },
+        "scroll-x": {
+          "bar": {
+            "background-color": "#DCEDC8",
+            "alpha": 0.5
+          },
+          "handle": {
+            "background-color": "#8BC34A"
           }
         },
         scaleY: {
@@ -160,15 +197,18 @@ function chartConfig(server_data,gen){
           {
             values:data[0],
             text:server_data.gen_record[0].name,
+            'barWidth':'75%',
           },
           {
             values:data[1],
             text:server_data.gen_record[1].name,
+            'barWidth':'75%',
           },
           {
             values:data[2],
             text:server_data.gen_record[2].name,
-          }
+            'barWidth':'75%',
+          },
         ]
       },
       {
@@ -177,9 +217,9 @@ function chartConfig(server_data,gen){
         borderColor: '#dae5ec',
         borderWidth: '1px',
         width: '96%',
-        height: '47%',
+        height: '50%',
         x: '2%',
-        y: '52.2%',
+        y: '47.2%',
         title: {
           text: 'kWH Records',
           marginTop: '7px',
@@ -190,6 +230,9 @@ function chartConfig(server_data,gen){
           fontSize: '11px',
           shadow: false,
           textAlign: 'center'
+        },
+        "preview": {
+          // adjustLayout:true,
         },
       
         subtitle:{
@@ -203,7 +246,9 @@ function chartConfig(server_data,gen){
           }
         },
         plotarea: {
-          margin: '50px 25px 70px 46px'
+          margin: '50px 25px 65px 46px',
+          marginBottom:'120 px',
+          borderRadius:'10px',
         },
         scaleY: {
           guide: {
@@ -226,6 +271,7 @@ function chartConfig(server_data,gen){
         "utc":true,
         "timezone":8,
         scaleX: {
+            zooming:true,
             minValue: unix_seconds,
             step: '1hour', 
             transform:{ 
@@ -234,6 +280,30 @@ function chartConfig(server_data,gen){
               all: '%D <br>%h:%i %A',
               itemsOverlap: true,
             },
+            mediaRules: [
+              {
+                maxWidth: 700,
+                "zooming": true,
+                "zoom-to": [0, 11],
+                transform:{ 
+                  type: 'date',
+                  // all: '%D, %d %M %Y<br>%h:%i %A', Day,day Month, Year, Time format
+                  all: '%h:%i',
+                  itemsOverlap: true,
+                },
+              
+              },
+              
+            ],
+           "scroll-x": {
+                    "bar": {
+                      "background-color": "#DCEDC8",
+                      "alpha": 0.5
+                    },
+                    "handle": {
+                      "background-color": "#8BC34A"
+                    }
+          },
           item: {
             paddingTop: '5px',
             fontColor: '#8391a5',
@@ -248,17 +318,18 @@ function chartConfig(server_data,gen){
           }
         },
         legend: {
-          margin: 'auto auto 15 auto',
+          // margin:'20 auto 15 auto',
           backgroundColor: 'none',
           borderWidth: '0px',
           item: {
-            margin: '0px',
+            margin: '1px',
+            marginTop:'0px',
             padding: '0px',
             fontColor: '#707d94', 
             fontFamily: 'Arial',
             fontSize: '9px'
           },
-          layout: 'x3',
+          layout: '2x2',
           marker: {
             type: 'match',
             padding: '3px',
@@ -359,7 +430,8 @@ function renderChart(year,month,day){
     zingchart.render({ 
         id: 'myChart', 
         data: chartConfig(server_data,gen),
-        width:'100%' ,
+        width:'100%',
+        height:650,
         });
 };
 function getDateParameters(dateValue){
