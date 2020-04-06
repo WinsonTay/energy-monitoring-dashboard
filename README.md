@@ -24,9 +24,6 @@ A Date Selection is available to choose which day to view the information.
 Responsive Barchart and Line Trends
 
 ![](imgs/mobile.PNG)
->>>>>>> 98c0c0dfbb8b63b2a7d8a189bc5b74200034e467
-
-
 ### Print as PDF document
 The barchart, and tables can be created as pdf using jsPDF library.
 This function will be only enable in deskstop mode.
