@@ -67,7 +67,7 @@ function renderGrid(year,month,day,idx){
         id: 'myGrid', 
         data: gridConfig(gridSeries),
         width:'100%' ,
-        height:'200%',
+        height:'950',
         output:'svg',
         });
 }

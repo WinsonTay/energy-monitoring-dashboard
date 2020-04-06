@@ -60,7 +60,15 @@ function chartConfig(server_data,gen){
           fontSize: '11px',
           fontWeight: 'bold',
           shadow: false,
-          textAlign: 'center'
+          textAlign: 'center',
+          mediaRules: [{
+            maxWidth:550,
+            textAlign: 'left',
+            marginTop:'3px',
+            text:'GENERATOR PERFORMANCE<br>FOR PAST 7 days',
+            fontSize:'8px,'
+          }
+          ],
         },
         "legend": {
           layout: "2x2"
@@ -90,7 +98,7 @@ function chartConfig(server_data,gen){
           }
         },
         plotarea: {
-          margin: '45px 1px 30px 10px',
+          margin: '45px 1px 40px 10px',
           marginLeft:'70px',
           marginRight:'10px',
 
@@ -122,9 +130,9 @@ function chartConfig(server_data,gen){
               
               },
               {
-                maxWidth: 500,
+                maxWidth: 400,
                 "zooming": true,
-                "zoom-to": [0, 1],
+                "zoom-to": [0, 3],
                 transform:{ 
                   type: 'date',
                   // all: '%D, %d %M %Y<br>%h:%i %A', Day,day Month, Year, Time format
@@ -229,15 +237,23 @@ function chartConfig(server_data,gen){
           fontFamily: 'Arial',
           fontSize: '11px',
           shadow: false,
-          textAlign: 'center'
+          textAlign: 'center',
+          mediaRules:[
+            {
+              maxWidth:500,
+              textAlign:'left',
+            }
+          ]
         },
         "preview": {
           // adjustLayout:true,
         },
+
       
         subtitle:{
             text:server_data.date,
             marginTop:'20px',
+            textAlign:'left',
         },
         plot: {
           animation: {
@@ -284,7 +300,7 @@ function chartConfig(server_data,gen){
               {
                 maxWidth: 700,
                 "zooming": true,
-                "zoom-to": [0, 11],
+                "zoom-to":[0,11],
                 transform:{ 
                   type: 'date',
                   // all: '%D, %d %M %Y<br>%h:%i %A', Day,day Month, Year, Time format
