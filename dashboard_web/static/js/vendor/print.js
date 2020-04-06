@@ -36,35 +36,8 @@ zingchart.exec('myChart', 'getimagedata', {
     
     })
   }
-  // doc.addPage('a4','l')
-  // doc.text( 'Generator 2 - ' + $('.input-group.date').datepicker('getDate').toDateString(),15,7);
-  // doc.autoTable({
-  //   head: [['Record Time','kWH Records','Voltage-3p']],
-  //   theme:'grid',
-  //   styles: { fillColor: [255, 255, 255] },
-  //   headStyles: {fillColor:[72,255,255], textColor:20 ,halign: 'center'},
-  //   bodyStyles:{halign:'center', fontSize:9},
-  //   margin: { top: 9, bottom:0},
-    
-  //   body: tableData(server_data,dateSelected[0],dateSelected[1],dateSelected[2],1),
-  
-  // })
-  // doc.addPage('a4','l')
-  // doc.text( 'Generator 3 - ' + $('.input-group.date').datepicker('getDate').toDateString(),15,7);
-  // doc.autoTable({
-  //   head: [['Record Time','kWH Records','Voltage-3p']],
-  //   theme:'grid',
-  //   styles: { fillColor: [255, 255, 255] },
-  //   headStyles: {fillColor:[72,255,255], textColor:20 ,halign: 'center'},
-  //   bodyStyles:{halign:'center', fontSize:9},
-  //   margin: { top: 9, bottom:0},
-    
-  //   body: tableData(server_data,dateSelected[0],dateSelected[1],dateSelected[2],2),
-  
-  // })
-  // doc.addImage(imgGrid,'jpg',5,10,280,390)
-  doc.output('dataurlnewwindow');
-  // doc.output('save','testing2.pdf')
+  // doc.output('dataurlnewwindow');
+  doc.output('save','Report.pdf')
 
   }, 900);
 }

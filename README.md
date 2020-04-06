@@ -2,8 +2,8 @@
 ## [Live Demo](https://winson-dashboard.herokuapp.com/)
 
 
-Dashboard allow Engineers, Plant manager to view Generator Records from a
-Web
+a Web Dashboard that allow Engineers, Plant manager to view Generator kWH Records and 
+performance.
 
 Python is serving as the back-end server storing the data in the postgre database.
 The data will be push to the database using SCADA software.
