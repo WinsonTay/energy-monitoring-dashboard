@@ -12,7 +12,7 @@ SCADA is an industrial software which provide a human-machine interface created 
 to monitor and control their machines.SCADA software normally communicate with Industry digital computer(PLC) to retrieve physical data and push the data to the database.
 
 
-![test](./imgs/SCADA_img.jpg)
+<img src="imgs/scada_img.jpg">
 
 # Barchart and Line Trending
 The Web app will render a line trending, barchart and tables using ZingChart with data gathered
@@ -28,4 +28,5 @@ Responsive Barchart and Line Trends
 ### Print as PDF document
 The barchart, and tables can be created as pdf using jsPDF library.
 This function will be only enable in deskstop mode.
+
 
